@@ -16,6 +16,16 @@ Meteor.startup(function() {
         text: message,
         html: Handlebars.templates['contactEmail']({siteURL: Meteor.absoluteUrl(), fromName: name, fromEmail: email, message: message})
       });
+    },
+    'saveBook':function(book){
+      check(book.name,String);
+      book.userId = Meteor.userId();
+      book.dateentered = new Date();
+      book.lastupdate = new Date();
+      if(!book.datedue){
+        book.datedue = new Date();
+      }
+      return Books.insert(book);
     }
   });
 });

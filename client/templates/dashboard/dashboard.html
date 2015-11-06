@@ -4,44 +4,61 @@
       <li><a href="{{pathFor 'home'}}"><i class="fa fa-home"></i> Home</a></li>
       <li class="active"><i class="fa fa-tachometer"></i> Dashboard</li>
     </ol>
-    <div class="page-header">
-      <!-- <h1>Book <small>List</small></h1> -->
-      <p>
-        <input class="biginput" type="text" name="bookTitleEnter" id="bookTitleEnter" placeholder="Add a new book">
-      </p>
-    </div>
-    <p class="italic">Sorted by <a class="sortToggle" href="#">name</a></p>
-    <div>
-      {{#each books}}
-        {{>book}}
-      {{else}}
-        <h4><i style="color:darkred;" class="fa fa-exclamation-triangle"></i>&nbsp;No Books Found&nbsp;<i style="color:darkred;" class="fa fa-exclamation-triangle"></i></h4>
-      {{/each}}
-    </div>
-  </div>
-</template>
-
-
-<template name="book">
-  <div class="col-md-3">
+    
+    <div class="col-md-3">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">
-            <p class="pull-right"><i class="fa fa-trash deleteConfirmation"></i></p>
-            <p>
-              <h5>
-                <a href="books/{{_id}}">Book Title</a>
-              </h5>
-              <p><small>Entered on 11.04.2015</small></p>
-             </p>
-          </h3>
+          <h3 class="panel-title">Books</h3>
         </div>
         <div class="panel-body">
-          <small>
-            <span>Due on 12.01.2015</span>
-          </small>
+          Total count, etc.
         </div>
-        <div class="panel-footer"></div>
       </div>
     </div>
+
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Tasks</h3>
+        </div>
+        <div class="panel-body">
+          Latest, todays, etc.
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Calendar</h3>
+        </div>
+        <div class="panel-body">
+          Default to this week's calendar.
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Analytics</h3>
+        </div>
+        <div class="panel-body">
+          Pulled from Google Analytics, etc.
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Archives</h3>
+        </div>
+        <div class="panel-body">
+          Finished stuff.
+        </div>
+      </div>
+    </div>
+
+  </div>
 </template>

@@ -1,0 +1,22 @@
+.panel-body {
+
+}
+
+.panel-title {
+	padding-bottom: 5px;
+}
+.panel-title h3 {
+	font-size: 3px;
+}
+.panel-title h4 {
+	font-size: 11px;
+}
+
+ul.booklist > li {
+	font-weight: bold;
+	border-bottom: 1px solid #ddd;
+}
+
+.fa-trash {
+	color: #8b0000;
+}

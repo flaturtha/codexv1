@@ -1,3 +1,51 @@
 <template name="books">
-	BOOKS
+	<ol class="breadcrumb">
+		<li><a href="{{pathFor 'home'}}"><i class="fa fa-home"></i> Home</a></li>
+		<li class="active"><i class="fa fa-book"></i> Books</li>
+	</ol>
+	<div class="page-header">
+      <!-- <h1>Book <small>List</small></h1> -->
+      <p>
+        <input class="biginput" type="text" name="bookTitleEnter" id="bookTitleEnter" placeholder="Add a new book">
+      </p>
+    </div>
+    <p class="italic">Sorted by <a class="sortToggle" href="#">name</a></p>
+    <div>
+      {{#each books}}
+        {{>book}}
+      {{else}}
+        <h4><i style="color:#8b0000;" class="fa fa-exclamation-triangle"></i>&nbsp;No Books Found&nbsp;<i style="color:#8b0000;" class="fa fa-exclamation-triangle"></i></h4>
+      {{/each}}
+    </div>
+	
+</template>
+
+<template name="book">
+  <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title" style="font-size:13px;color:#8b0000;">
+            <a href="books/{{_id}}">{{name}}</a>
+          </h3>
+          <h4 class="panel-title" style="font-size:12px;text-transform: capitalize;">by Ward Sterling</h4>
+        </div>
+
+        <div class="panel-body">
+        <ul class="list-unstyled booklist">
+        	<li>
+	          <small>Current Status: {{status}}</small>
+        	</li>
+        	<li>
+          	<small>Created: {{formatdate dateCreated}}</small>
+        	</li>
+        	<li>
+          	<small>Last Updated: {{formatdate dateUpdated}}</small>
+        	</li>
+        </ul>
+        </div>
+        <div class="panel-footer">
+          <p><i class="pull-right fa fa-trash deleteConfirmation"></i></p>
+        </div>
+      </div>
+    </div>
 </template>

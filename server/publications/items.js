@@ -13,3 +13,6 @@ Meteor.publishComposite("items", function() {
     // ]
   }
 });
+Meteor.publish('books',function(){
+  return Books.find({});
+})
