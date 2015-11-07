@@ -1,0 +1,113 @@
+<template name="bookView">
+	<ol class="breadcrumb">
+    <li><a href="{{pathFor 'home'}}"><i class="fa fa-home"></i> Home</a></li>
+    <li><a href="{{pathFor 'books'}}"><i class="fa fa-book"></i> Books</a></li>
+    <li class="active"><i class="fa fa-pencil-square-o"></i> Book View | <span class="cap">{{name}}</span></li>
+  </ol>
+
+  {{>bvHead}}
+  {{>meta}}
+  {{>status}}
+
+</template>
+
+<template name="bvHead">
+	<div class="row bookviewtitle">
+		<div class="col-md-6">
+			<h3 class="title">{{name}}</h3>
+			<h4><span class="text-muted">by</span> <span class="author">{{author}}Ward Sterling</span></h4>
+			<p class="cfn">Casefile Number: {{_id}}</p>			
+		</div>
+		<div class="col-md-6">
+			<dl class="dl-horizontal">
+				<dt>Date Created:</dt>
+				<dd>{{dateCreated}}02 Nov 2015</dd>
+				<dt>Due Date:</dt>
+				<dd>{{dateDue}}09 Nov 2015</dd>
+				<dt>Last Updated:</dt>
+				<dd>{{dateUpdated}}05 Nov 2015</dd>
+			</dl>
+		</div>
+	</div>
+</template>
+
+<template name="meta">
+	<div class="row meta">
+		<div class="col-md-8">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<dl class="dl-horizontal">
+						<dt>Original Publication</dt>
+						<dd>{{o_pub}}Black Mask</dd>
+						<dt>Original Pub Date</dt>
+						<dd>{{o_pubdate}}Jan 1920</dd>
+						<dt>SubGenre</dt>
+						<dd>{{subgenre}}Noir</dd>
+						<dt>Type</dt>
+						<dd>{{type}}Premium</dd>
+						<dt>Word Count</dt>
+						<dd>{{wordCount}}7,342</dd>
+						<dt>Illustration</dt>
+						<dd>{{illustrations}}full: 1, spots: 2</dd>
+						<dt>Keywords</dt>
+						<dd>{{keywords}}New York, flivver, escape, DC3</dd>
+						<dt>Excerpt</dt>
+						<dd>{{excerpt}}Without a sign of undue haste, Halligan buckled his belt and holster about his waist. Coolly he unbuttoned the holster and drew the gun. He cocked the weapon and, with his finger on the trigger, waited for the others to settle their argument.</dd>
+					</dl>
+				</div>
+			</div>
+		</div> <!-- end div col-md-9 -->
+		<div class="col-md-4">
+			<img src="{{pathFor img}}" alt="{{name}}">
+		</div>
+	</div>
+</template>
+
+<template name="status">
+	<div class="row status">
+<!-- 		<h3>Book Dev Status</h3>
+		<ul>
+			<li>Raw</li>
+			<li>.rtf</li>
+			<li>PDF-raw</li>
+			<li>GoodNote-marked</li>
+			<li>docx-ed</li>
+			<li>INDD</li>
+			<li>MD</li>
+			<li>ePub</li>
+			<li>.mobi</li>
+			<li>print</li>
+			<li>audio</li>
+		</ul> -->
+
+		<form action="" method="POST" role="form">
+			<legend>Book Dev Status</legend>
+		
+			<div class="form-group">
+				<label for="">raw</label>
+				<input type="checkbox" class="form-control" id="" placeholder="Input field">
+
+				<label for="">edited</label>
+				<input type="checkbox" class="form-control" id="" placeholder="Input field">
+
+				<label for="">.indd</label>
+				<input type="checkbox" class="form-control" id="" placeholder="Input field">
+
+				<label for="">ePub</label>
+				<input type="checkbox" class="form-control" id="" placeholder="Input field">
+
+				<label for="">Print</label>
+				<input type="checkbox" class="form-control" id="" placeholder="Input field">
+			</div>
+		</form>
+
+
+	</div>
+</template>
+
+
+
+
+
+
+

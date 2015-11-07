@@ -12,6 +12,10 @@
 	font-size: 11px;
 }
 
+.table-top {
+	border-style: none;
+}
+
 ul.booklist > li {
 	font-weight: bold;
 	border-bottom: 1px solid #ddd;
@@ -20,3 +24,40 @@ ul.booklist > li {
 .fa-trash {
 	color: #8b0000;
 }
+
+.bookviewtitle {
+	margin-top: 25px;
+}
+
+.title {
+	color: #8b0000;
+	text-transform: uppercase;
+	margin: 0;
+	padding: 0;
+}
+
+.author {
+	color: #8b0000;
+
+}
+
+.cfn {
+	text-transform: uppercase;;
+	font-weight: bold;
+	font-size: 12px;
+	color: grey;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	text-transform: none;
+}
+
+.cap {
+	text-transform: uppercase;
+}
+
+
+
+
+
+
