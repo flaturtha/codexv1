@@ -2,11 +2,11 @@
 	<ol class="breadcrumb">
     <li><a href="{{pathFor 'home'}}"><i class="fa fa-home"></i> Home</a></li>
     <li><a href="{{pathFor 'books'}}"><i class="fa fa-book"></i> Books</a></li>
-    <li class="active"><i class="fa fa-pencil-square-o"></i> Book View | <span class="cap">{{name}}</span></li>
+    <li class="active"><i class="fa fa-pencil-square-o"></i> Book View | <span class="cap">{{title}}</span></li>
   </ol>
 
   {{>bvHead}}
-  <!-- {{>meta}} -->
+  {{>meta}}
   <!-- {{>status}} -->
 
 </template>
@@ -14,18 +14,18 @@
 <template name="bvHead">
 	<div class="row bookviewtitle">
 		<div class="col-md-6">
-			<h3 class="title">{{name}}</h3>
-			<h4><span class="text-muted">by</span> <span class="author">{{author}}Ward Sterling</span></h4>
+			<h3 class="title">{{title}}</h3>
+			<h4><span class="text-muted">by</span> <span class="author">{{author}}</span></h4>
 			<p class="cfn">Casefile Number: {{_id}}</p>			
 		</div>
 		<div class="col-md-6">
 			<dl class="dl-horizontal">
 				<dt>Date Created:</dt>
-				<dd>{{dateCreated}}02 Nov 2015</dd>
+				<dd>{{formatdate createdAt}}</dd>
 				<dt>Due Date:</dt>
-				<dd>{{dateDue}}09 Nov 2015</dd>
+				<dd>{{formatdate createdAt}} + 7</dd>
 				<dt>Last Updated:</dt>
-				<dd>{{dateUpdated}}05 Nov 2015</dd>
+				<dd>{{formatdate updatedAt}}</dd>
 			</dl>
 		</div>
 	</div>
@@ -38,34 +38,41 @@
 				<div class="panel-body">
 					<dl class="dl-horizontal">
 						<dt>Original Publication</dt>
-						<dd><input class="o_pub" placeholder="&nbsp;[pub name]" type="text" name="o_pub" id="o_pub" size="60;"></dd>
+						<dd><!-- <input class="o_pub" placeholder="&nbsp;[pub name]" type="text" name="o_pub" id="o_pub" size="60;"> -->{{o_pub}}</dd>
 
 						<dt>Original Pub Date</dt>
-						<dd style="width:200px;"><input class="o_pubDate" placeholder="&nbsp;[DD MMM YYYY]" type="text" name="o_pubDate" id="o_pubDate" size="30;">{{o_pubdate}}</dd>
+						<dd style="width:200px;"><!-- <input class="o_pubDate" placeholder="&nbsp;[DD MMM YYYY]" type="text" name="o_pubDate" id="o_pubDate" size="30;"> -->{{o_pubdate}}</dd>
 
 						<dt>SubGenre</dt>
-						<dd><input class="subgenre" placeholder="&nbsp;[sub-genre]" type="text" name="subgenre" id="subgenre" size="60;">{{subgenre}}</dd>
+						<dd><!-- <input class="subgenre" placeholder="&nbsp;[sub-genre]" type="text" name="subgenre" id="subgenre" size="60;"> -->{{subgenre}}</dd>
 
 						<dt>Category</dt>
-						<dd><input class="cluster" placeholder="&nbsp;[rainy afternoon ... ]" type="text" name="cluster" id="cluster" size="60;">{{type}}</dd>
+						<dd><!-- <input class="cluster" placeholder="&nbsp;[rainy afternoon ... ]" type="text" name="cluster" id="cluster" size="60;"> -->{{category}}</dd>
 
 						<dt>Word Count</dt>
-						<dd><input class="wordCount" placeholder="&nbsp;[word count]" type="number" name="wordCount" id="wordCount" size="60;">{{wordCount}}</dd>
+						<dd><!-- <input class="wordCount" placeholder="&nbsp;[word count]" type="number" name="wordCount" id="wordCount" size="60;"> -->{{wordCount}}</dd>
 
 						<dt>Illustrations</dt>
 						<dd>
-							<label for="illustrationFullInput">Full</label>
-							<input class="illustrationFull" placeholder="&nbsp;# [full]" type="text" name="illustrationFull" id="illustrationFullInput" size="10;">{{iFull}}
+							<dt>Full:</dt>
+							<dd>{{full}}</dd>
+
+							<dt>Spot:</dt>
+							<dd>{{illustration.spot}}</dd>
+
+
+							<!-- <label for="illustrationFullInput">Full</label>
+							<input class="illustrationFull" placeholder="&nbsp;# [full]" type="text" name="illustrationFull" id="illustrationFullInput" size="10;">{{full}}
 							
 							<label for="illustrationSpotInput">Spot</label>
-							<input class="illustrationSpot" placeholder="&nbsp;# [spot]" type="text" name="illustrationSpot" id="illustrationSpotInput" size="10;">{{iSpot}}
+							<input class="illustrationSpot" placeholder="&nbsp;# [spot]" type="text" name="illustrationSpot" id="illustrationSpotInput" size="10;">{{illustrationType.spot}} -->
 						</dd>
 
 						<dt>Keywords</dt>
-						<dd><input class="keywords" placeholder="&nbsp;[keywords list]" type="text" name="keywords" id="keywords" size="60;">{{keywords}}</dd>
+						<dd><!-- <input class="keywords" placeholder="&nbsp;[keywords list]" type="text" name="keywords" id="keywords" size="60;"> -->{{keywords}}</dd>
 
 						<dt>Excerpt</dt>
-						<dd><textarea class="excerpt" placeholder="&nbsp;[100 word excerpt]" type="textarea" name="excerpt" id="excerpt" cols="59" rows="4">{{excerpt}}</textarea></dd>
+						<dd><!-- <textarea class="excerpt" placeholder="&nbsp;[100 word excerpt]" type="textarea" name="excerpt" id="excerpt" cols="59" rows="4"> -->{{excerpt}}<!-- </textarea> --></dd>
 
 
 
@@ -77,6 +84,33 @@
 			<img src="{{pathFor img}}" alt="{{name}}">
 		</div>
 	</div>
+</template>
+
+<template name="meta2">
+	<ul>
+				<li>Title: {{title}}</li>
+				<li>Subtitle: {{subTitle}}</li>
+				<li>Author: {{author}}</li>
+				<li>Series: {{series}}</li>
+				<li>Original Pub: {{o_pub}}</li>
+				<li>Original Pub Date:{{o_pubDate}}</li>
+				<li>Subgenre: {{subgenre}}</li>
+				<li>Category: {{category}}</li>
+				<li>Word Count{{wordCount}}</li>
+				<li> Illustrations:
+					<ul>
+						<li>Full: {{>afQuickField name="Full" value=illustrationType.name}}</li>
+						<li>Spot: {{spot}}</li>
+					</ul>
+				</li>
+				<li>Keywords: {{keywords}}</li>
+				<li>Excerpt: {{excerpt}}</li>
+				<li>Dev Status: {{devStatus}}</li>
+				<li>Pub Status: {{pubStatus}}</li>
+				<li>Pub Type: {{pubType}}</li>
+				<li>Created On: {{createdAt}}</li>
+				<li>Updated On: {{updatedAt}}</li>
+			</ul>		
 </template>
 
 

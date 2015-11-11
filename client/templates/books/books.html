@@ -14,14 +14,10 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Modal title</h4>
+                <h4 class="modal-title">Enter book details</h4>
               </div>
               <div class="modal-body">
                 {{> addNewBook}}
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
               </div>
             </div>
           </div>
@@ -30,7 +26,7 @@
         
       </p>
     </div>
-    <p class="italic">Sorted by <a class="sortToggle" href="#">name</a></p>
+    <p class="italic">Sorted by <a class="sortToggle" href="#">title</a></p>
     <div>
       {{#each books}}
         {{>book}}
@@ -46,21 +42,21 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title" style="font-size:13px;color:#8b0000;">
-            <a href="books/{{_id}}">{{name}}</a>
+            <a href="books/{{_id}}">{{title}}</a>
           </h3>
-          <h4 class="panel-title" style="font-size:12px;text-transform: capitalize;">by Ward Sterling</h4>
+          <h4 class="panel-title" style="font-size:12px;text-transform: capitalize;">by {{author}}</h4>
         </div>
 
         <div class="panel-body">
         <ul class="list-unstyled booklist">
         	<li>
-	          <small>Current Status: {{status}}</small>
+	          <small>Current Status: {{devStatus}}</small>
         	</li>
         	<li>
-          	<small>Created: {{formatdate dateCreated}}</small>
+          	<small>Created: {{formatdate createdAt}}</small>
         	</li>
         	<li>
-          	<small>Last Updated: {{formatdate dateUpdated}}</small>
+          	<small>Last Updated: {{formatdate updatedAt}}</small>
         	</li>
         </ul>
         </div>
@@ -73,7 +69,7 @@
 
 <template name="addNewBook">
   <div class="addNewBook">
-    {{> quickForm collection="Books" id="addNewBookForm" type="insert" class="newBookFormn"}}
+    {{> quickForm collection="Books" id="addNewBookForm" type="insert" class="newBookForm"}}
   </div>
 </template>
 
