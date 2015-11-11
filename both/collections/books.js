@@ -117,6 +117,11 @@ BookSchema = new SimpleSchema({
 		type: String,
 		label: "Title"
 	},
+	subTitle: {
+		type: String,
+		label: "SubTitle",
+		optional: true
+	},
 	author: {
 		type: String,
 		label: "Author",
