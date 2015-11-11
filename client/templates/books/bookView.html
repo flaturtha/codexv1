@@ -6,8 +6,8 @@
   </ol>
 
   {{>bvHead}}
-  {{>meta}}
-  {{>status}}
+  <!-- {{>meta}} -->
+  <!-- {{>status}} -->
 
 </template>
 
@@ -38,21 +38,37 @@
 				<div class="panel-body">
 					<dl class="dl-horizontal">
 						<dt>Original Publication</dt>
-						<dd>{{o_pub}}Black Mask</dd>
+						<dd><input class="o_pub" placeholder="&nbsp;[pub name]" type="text" name="o_pub" id="o_pub" size="60;"></dd>
+
 						<dt>Original Pub Date</dt>
-						<dd>{{o_pubdate}}Jan 1920</dd>
+						<dd style="width:200px;"><input class="o_pubDate" placeholder="&nbsp;[DD MMM YYYY]" type="text" name="o_pubDate" id="o_pubDate" size="30;">{{o_pubdate}}</dd>
+
 						<dt>SubGenre</dt>
-						<dd>{{subgenre}}Noir</dd>
-						<dt>Type</dt>
-						<dd>{{type}}Premium</dd>
+						<dd><input class="subgenre" placeholder="&nbsp;[sub-genre]" type="text" name="subgenre" id="subgenre" size="60;">{{subgenre}}</dd>
+
+						<dt>Category</dt>
+						<dd><input class="cluster" placeholder="&nbsp;[rainy afternoon ... ]" type="text" name="cluster" id="cluster" size="60;">{{type}}</dd>
+
 						<dt>Word Count</dt>
-						<dd>{{wordCount}}7,342</dd>
-						<dt>Illustration</dt>
-						<dd>{{illustrations}}full: 1, spots: 2</dd>
+						<dd><input class="wordCount" placeholder="&nbsp;[word count]" type="number" name="wordCount" id="wordCount" size="60;">{{wordCount}}</dd>
+
+						<dt>Illustrations</dt>
+						<dd>
+							<label for="illustrationFullInput">Full</label>
+							<input class="illustrationFull" placeholder="&nbsp;# [full]" type="text" name="illustrationFull" id="illustrationFullInput" size="10;">{{iFull}}
+							
+							<label for="illustrationSpotInput">Spot</label>
+							<input class="illustrationSpot" placeholder="&nbsp;# [spot]" type="text" name="illustrationSpot" id="illustrationSpotInput" size="10;">{{iSpot}}
+						</dd>
+
 						<dt>Keywords</dt>
-						<dd>{{keywords}}New York, flivver, escape, DC3</dd>
+						<dd><input class="keywords" placeholder="&nbsp;[keywords list]" type="text" name="keywords" id="keywords" size="60;">{{keywords}}</dd>
+
 						<dt>Excerpt</dt>
-						<dd>{{excerpt}}Without a sign of undue haste, Halligan buckled his belt and holster about his waist. Coolly he unbuttoned the holster and drew the gun. He cocked the weapon and, with his finger on the trigger, waited for the others to settle their argument.</dd>
+						<dd><textarea class="excerpt" placeholder="&nbsp;[100 word excerpt]" type="textarea" name="excerpt" id="excerpt" cols="59" rows="4">{{excerpt}}</textarea></dd>
+
+
+
 					</dl>
 				</div>
 			</div>
@@ -60,48 +76,6 @@
 		<div class="col-md-4">
 			<img src="{{pathFor img}}" alt="{{name}}">
 		</div>
-	</div>
-</template>
-
-<template name="status">
-	<div class="row status">
-<!-- 		<h3>Book Dev Status</h3>
-		<ul>
-			<li>Raw</li>
-			<li>.rtf</li>
-			<li>PDF-raw</li>
-			<li>GoodNote-marked</li>
-			<li>docx-ed</li>
-			<li>INDD</li>
-			<li>MD</li>
-			<li>ePub</li>
-			<li>.mobi</li>
-			<li>print</li>
-			<li>audio</li>
-		</ul> -->
-
-		<form action="" method="POST" role="form">
-			<legend>Book Dev Status</legend>
-		
-			<div class="form-group">
-				<label for="">raw</label>
-				<input type="checkbox" class="form-control" id="" placeholder="Input field">
-
-				<label for="">edited</label>
-				<input type="checkbox" class="form-control" id="" placeholder="Input field">
-
-				<label for="">.indd</label>
-				<input type="checkbox" class="form-control" id="" placeholder="Input field">
-
-				<label for="">ePub</label>
-				<input type="checkbox" class="form-control" id="" placeholder="Input field">
-
-				<label for="">Print</label>
-				<input type="checkbox" class="form-control" id="" placeholder="Input field">
-			</div>
-		</form>
-
-
 	</div>
 </template>
 

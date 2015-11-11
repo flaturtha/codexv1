@@ -21,6 +21,10 @@ ul.booklist > li {
 	border-bottom: 1px solid #ddd;
 }
 
+.status > ul > li {
+	list-style-type: none;
+}
+
 .fa-trash {
 	color: #8b0000;
 }
@@ -56,8 +60,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	text-transform: uppercase;
 }
 
-
-
-
-
+.dl-horizontal>dd {
+	margin-bottom: 10px;
+}
 

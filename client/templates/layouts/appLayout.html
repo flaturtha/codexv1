@@ -7,7 +7,9 @@
 
   <div class="container-fluid">
 	  <div class="row">
-		  {{>sidebar}}
+      <!-- {{# if !pathFor 'home'}} -->
+		    {{>sidebar}}
+      <!-- {{/if}} -->
 	  	<div class="col-md-10">
 	    	{{> yield}}
 	  	</div>
