@@ -54,11 +54,17 @@
 
 						<dt>Illustrations</dt>
 						<dd>
-							<dt>Full:</dt>
-							<dd>{{full}}</dd>
+							{{#each illustration}}
+								<!-- <dt>Full:</dt>
+								<dd>{{full}}</dd>
 
-							<dt>Spot:</dt>
-							<dd>{{illustration.spot}}</dd>
+								<dt>Spot:</dt>
+								<dd>{{spot}}</dd> -->
+
+								<p>Full: {{full}}</p>
+								<p>Spot: {{spot}}</p>
+
+							{{/each}}
 
 
 							<!-- <label for="illustrationFullInput">Full</label>

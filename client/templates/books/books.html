@@ -69,10 +69,23 @@
 
 <template name="addNewBook">
   <div class="addNewBook">
+    <!-- {{> signupForm}} -->
     {{> quickForm collection="Books" id="addNewBookForm" type="insert" class="newBookForm"}}
   </div>
 </template>
 
+<template name="signupForm">
+  <div class="panel-body">
+    {{#autoForm collection="Meteor.Books" id="signupForm" type="insert"}}
+    <fieldset>
+      {{> afQuickField name='name' }}
+      {{> afObjectField name='illustration.full'}}
+      
+    </fieldset>
+    <button type="Submit" class="btn btn-primary">Insert</button>
+    {{/autoForm}}
+  </div>
+</template>
 
 
 
